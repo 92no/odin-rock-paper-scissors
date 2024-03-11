@@ -15,6 +15,7 @@ function getComputerChoice() {
 }
 
 // Play a single round of rock paper scissors
+// Returns string with result of played round
 function playRound(playerSelection, computerSelection) {
   // Player chooses Rock
   if (playerSelection.toLowerCase() === "rock") {
@@ -53,19 +54,13 @@ function playRound(playerSelection, computerSelection) {
 function playGame() {
   let playerWin = 0;
   let playerLose = 0;
-  // Play five rounds of rock paper scissors
+
   for (let i = 0; i < 5; i++) {
-    // Get user choice as string
     let playerSelection = prompt("Rock, Paper or Scissors").toLowerCase();
-
-    // Get computer choice
     let computerSelection = getComputerChoice();
-
-    // Save output of a round in variable result
     let result = playRound(playerSelection, computerSelection);
     console.log(result);
 
-    // Check if player wins or looses and track scores
     if (result.includes("Win")) {
       playerWin++;
     } else if (result.includes("Lose")) {
@@ -75,5 +70,5 @@ function playGame() {
   }
 }
 
-// Test
+// Play a game of rock paper scissors
 playGame();
