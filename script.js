@@ -1,5 +1,13 @@
 "use strict";
 
+// Labels and counter
+let playerScore = 0;
+let computerScore = 0;
+
+const playerScoreLabel = document.querySelector("#playerScoreLabel");
+const computerScoreLabel = document.querySelector("#computerScoreLabel");
+const resultLabel = document.querySelector("#resultLabel");
+
 // Random number chooses rock, paper or scissors
 // Returns string rock, paper or scissors
 function getComputerChoice() {
@@ -17,6 +25,13 @@ function getComputerChoice() {
 // Play a single round of rock paper scissors
 // Returns string with result of played round
 function playRound(playerSelection, computerSelection) {
+  // Check if game over and reset score
+  if (playerScore === 5 || computerScore === 5) {
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreLabel.textContent = playerScore;
+    computerScoreLabel.textContent = computerScore;
+  }
   // Player chooses Rock
   if (playerSelection.toLowerCase() === "rock") {
     if (computerSelection === "rock") {
@@ -49,26 +64,48 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-// Play a game of rock paper scissors, consisting of five rounds
-// Keeps track of the record
-function playGame() {
-  let playerWin = 0;
-  let playerLose = 0;
+// Update playerscore and computerscore
+function updateScore(result) {
+  if (result.includes("Win")) {
+    playerScore += 1;
+    playerScoreLabel.textContent = playerScore;
+  } else if (result.includes("Lose")) {
+    computerScore += 1;
+    computerScoreLabel.textContent = computerScore;
+  }
+  resultLabel.textContent = result;
+}
 
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("Rock, Paper or Scissors").toLowerCase();
-    let computerSelection = getComputerChoice();
-    let result = playRound(playerSelection, computerSelection);
-    console.log(result);
-
-    if (result.includes("Win")) {
-      playerWin++;
-    } else if (result.includes("Lose")) {
-      playerLose++;
-    }
-    console.log(`Player: ${playerWin} // Computer: ${playerLose}`);
+// TODO Check if game won and reset game
+function checkWinAndReset() {
+  if (playerScore === 5) {
+    resultLabel.textContent = "You Won! play again";
+  } else if (computerScore === 5) {
+    resultLabel.textContent = "You Lost! play again";
   }
 }
 
-// Play a game of rock paper scissors
-playGame();
+// Buttons to play a round
+// Rock Button
+const btnRock = document.querySelector("#btnRock");
+btnRock.addEventListener("click", () => {
+  let result = playRound("rock", getComputerChoice());
+  updateScore(result);
+  checkWinAndReset();
+});
+
+// Paper Button
+const btnPaper = document.querySelector("#btnPaper");
+btnPaper.addEventListener("click", () => {
+  let result = playRound("paper", getComputerChoice());
+  updateScore(result);
+  checkWinAndReset();
+});
+
+// Scissors Button
+const btnScissors = document.querySelector("#btnScissors");
+btnScissors.addEventListener("click", () => {
+  let result = playRound("scissors", getComputerChoice());
+  updateScore(result);
+  checkWinAndReset();
+});
