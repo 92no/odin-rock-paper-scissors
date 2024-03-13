@@ -4,26 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="shortcut icon"
-      href="./images/scissors.svg"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="./images/favicon.svg" type="image/x-icon" />
     <script src="script.js" defer></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap");
+    </style>
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <h1>Rock Paper Scissors</h1>
-    <div class="section-score">
-      <p id="playerScoreLabel">0</p>
-      :
-      <p id="computerScoreLabel">0</p>
-    </div>
-    <div id="resultLabel">Play</div>
-    <div class="section-btn">
-      <button id="btnRock">Rock</button>
-      <button id="btnPaper">Paper</button>
-      <button id="btnScissors">Scissors</button>
+    <div class="container">
+      <h1>Rock Paper Scissors</h1>
+      <div class="sectionScore">
+        <p id="playerScoreLabel">0</p>
+        <p>:</p>
+        <p id="computerScoreLabel">0</p>
+      </div>
+      <div id="resultLabel">Play</div>
+      <div class="sectionBtn">
+        <button id="btnRock">Rock</button>
+        <button id="btnPaper">Paper</button>
+        <button id="btnScissors">Scissors</button>
+      </div>
     </div>
   </body>
 </html>

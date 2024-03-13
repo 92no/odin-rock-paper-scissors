@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  color: aliceblue;
+  background-color: #32475d;
+}
+
+.container {
+  height: 400px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25vh;
+  padding-top: 80px;
+  border-radius: 20px;
+  background-color: #131b23;
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.sectionScore {
+  font-weight: 900;
+  font-size: 36px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#resultLabel {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.sectionBtn {
+  display: flex;
+  gap: 20px;
+}
+
+#btnRock,
+#btnPaper,
+#btnScissors {
+  font-size: 16px;
+  color: aliceblue;
+  border: solid 2px;
+  border-radius: 8px;
+  background-color: #131b23;
+  padding: 12px;
+  width: 100px;
+}
