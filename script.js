@@ -79,9 +79,9 @@ function updateScore(result) {
 // TODO Check if game won and reset game
 function checkWinAndReset() {
   if (playerScore === 5) {
-    resultLabel.textContent = "You Won! play again";
+    resultLabel.textContent = "You Win! play again";
   } else if (computerScore === 5) {
-    resultLabel.textContent = "You Lost! play again";
+    resultLabel.textContent = "You Lose! play again";
   }
 }
 
